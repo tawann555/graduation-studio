@@ -314,27 +314,27 @@
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="pic1.jpg" alt="Individual Portrait">
-        <span class="gallery-tag">👤 ภาพเดี่ยว (Individual)</span>
-      </div>
-      <div class="gallery-item">
-        <img src="pic2.jpg" alt="Group Friends">
-        <span class="gallery-tag">👥 ภาพกลุ่ม (Group)</span>
+        <span class="gallery-tag" id="tagInd1">👤 ภาพเดี่ยว (Individual)</span>
       </div>
       <div class="gallery-item">
         <img src="pic3.jpg" alt="Outdoor Solo">
-        <span class="gallery-tag">👤 ภาพเดี่ยว (Individual)</span>
+        <span class="gallery-tag" id="tagInd2">👤 ภาพเดี่ยว (Individual)</span>
+      </div>
+      <div class="gallery-item">
+        <img src="pic2.jpg" alt="Group Friends">
+        <span class="gallery-tag" id="tagGrp1">👥 ภาพกลุ่ม / เพื่อน</span>
       </div>
       <div class="gallery-item">
         <img src="pic4.jpg" alt="Group Friends Fun">
-        <span class="gallery-tag">👥 ภาพกลุ่ม (Group)</span>
+        <span class="gallery-tag" id="tagGrp2">👥 ภาพกลุ่ม (Group)</span>
       </div>
       <div class="gallery-item">
-        <img src="pic5.jpg" alt="Graduate & Friend">
-        <span class="gallery-tag">👤 ภาพคู่ / เดี่ยว</span>
+        <img src="pic5.jpeg" alt="Graduate & Friend">
+        <span class="gallery-tag" id="tagGrp3">👥 ภาพกลุ่มนอกรอบ</span>
       </div>
       <div class="gallery-item">
         <img src="pic6.jpg" alt="Group Graduation Collage">
-        <span class="gallery-tag">👥 บรรยากาศถ่ายกลุ่ม</span>
+        <span class="gallery-tag" id="tagInd3">👥 บรรยากาศถ่ายกลุ่ม</span>
       </div>
     </div>
 
@@ -363,7 +363,7 @@
 
       <div class="package-card popular">
         <span class="popular-tag" id="popularTag">ยอดนิยม</span>
-        <img src="pic2.jpg" alt="Group Package" class="package-img">
+        <img src="pic4.jpg" alt="Group Package" class="package-img">
         <div class="package-content">
           <div>
             <h3 id="pkg2Title">2. แพ็กเกจกลุ่มนอกรอบ (Group)</h3>
@@ -380,7 +380,7 @@
       </div>
 
       <div class="package-card">
-        <img src="pic3.jpg" alt="Graduation Day Package" class="package-img">
+        <img src="pic5.jpeg" alt="Graduation Day Package" class="package-img">
         <div class="package-content">
           <div>
             <h3 id="pkg3Title">3. แพ็กเกจวันจริง (Graduation Day)</h3>
@@ -464,6 +464,12 @@
         heroSubtitle: 'เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. บันทึกความทรงจำในวันสำคัญของคุณด้วยภาพถ่ายคุณภาพสูง',
         galleryTitle: 'ผลงานที่ผ่านมา (Portfolio)',
         gallerySubtitle: 'ตัวอย่างภาพถ่ายรับปริญญาเดี่ยวและภาพถ่ายกลุ่มเพื่อนจากสตูดิโอของเรา',
+        tagInd1: '👤 ภาพเดี่ยว (Individual)',
+        tagInd2: '👤 ภาพเดี่ยว (Individual)',
+        tagGrp1: '👥 ภาพกลุ่ม / เพื่อน',
+        tagGrp2: '👥 ภาพกลุ่ม (Group)',
+        tagGrp3: '👥 ภาพกลุ่มนอกรอบ',
+        tagInd3: '👥 บรรยากาศถ่ายกลุ่ม',
         pkgTitle: 'แพ็กเกจถ่ายภาพ',
         pkgSubtitle: 'เลือกแพ็กเกจที่ตรงกับความต้องการของคุณ',
         popularTag: 'ยอดนิยม',
@@ -503,6 +509,12 @@
         heroSubtitle: 'Open Daily 08:00 AM - 08:00 PM. Capture your graduation milestone with high-quality portraits.',
         galleryTitle: 'Our Portfolio',
         gallerySubtitle: 'Explore recent graduation photo sessions from our studio',
+        tagInd1: '👤 Individual Portrait',
+        tagInd2: '👤 Individual Portrait',
+        tagGrp1: '👥 Group Session',
+        tagGrp2: '👥 Group Session',
+        tagGrp3: '👥 Outdoor Group',
+        tagInd3: '👥 Group Session',
         pkgTitle: 'Photo Packages',
         pkgSubtitle: 'Choose the best package for your graduation day',
         popularTag: 'Most Popular',
@@ -547,6 +559,13 @@
       document.getElementById('heroSubtitle').innerText = langData.heroSubtitle;
       document.getElementById('galleryTitle').innerText = langData.galleryTitle;
       document.getElementById('gallerySubtitle').innerText = langData.gallerySubtitle;
+
+      document.getElementById('tagInd1').innerText = langData.tagInd1;
+      document.getElementById('tagInd2').innerText = langData.tagInd2;
+      document.getElementById('tagGrp1').innerText = langData.tagGrp1;
+      document.getElementById('tagGrp2').innerText = langData.tagGrp2;
+      document.getElementById('tagGrp3').innerText = langData.tagGrp3;
+      document.getElementById('tagInd3').innerText = langData.tagInd3;
 
       document.getElementById('pkgTitle').innerText = langData.pkgTitle;
       document.getElementById('pkgSubtitle').innerText = langData.pkgSubtitle;
