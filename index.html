@@ -23,7 +23,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Prompt', sans-serif; }
     body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
 
-    /* Header */
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -63,11 +62,10 @@
       border-color: var(--primary);
     }
 
-    /* Hero Banner */
     .hero {
       text-align: center;
       padding: 5rem 1.5rem 4rem;
-      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('7ecca14c-d479-439e-928d-3cbc3ce53c0f.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('pic2.jpg') center/cover no-repeat;
       color: white;
     }
     .hero-badge {
@@ -100,7 +98,6 @@
       font-size: 0.95rem;
     }
 
-    /* Gallery Section (รูปของคุณทั้ง 6 รูป) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -135,7 +132,6 @@
       font-weight: 500;
     }
 
-    /* Packages Grid */
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -221,7 +217,6 @@
     }
     .select-btn:hover { background: #334155; }
 
-    /* Booking Form */
     .booking-section {
       background: var(--card-bg);
       padding: 2.5rem;
@@ -264,7 +259,6 @@
     }
     .submit-btn:hover { background: var(--primary-hover); }
 
-    /* Confirmation Box */
     .confirmation-box {
       display: none;
       background: #f0fdf4;
@@ -312,8 +306,6 @@
   </section>
 
   <div class="container">
-    
-    <!-- Gallery Section ( รูปจริงของคุณทั้ง 6 รูป ) -->
     <div class="section-header">
       <h2 class="section-title" id="galleryTitle">ผลงานที่ผ่านมา (Portfolio)</h2>
       <p class="section-subtitle" id="gallerySubtitle">ตัวอย่างภาพถ่ายรับปริญญาเดี่ยวและภาพถ่ายกลุ่มเพื่อนจากสตูดิโอของเรา</p>
@@ -321,41 +313,39 @@
 
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="9.jpeg" alt="Individual Portrait">
+        <img src="pic1.jpg" alt="Individual Portrait">
         <span class="gallery-tag">👤 ภาพเดี่ยว (Individual)</span>
       </div>
       <div class="gallery-item">
-        <img src="7ecca14c-d479-439e-928d-3cbc3ce53c0f.jpg" alt="Group Friends">
+        <img src="pic2.jpg" alt="Group Friends">
         <span class="gallery-tag">👥 ภาพกลุ่ม (Group)</span>
       </div>
       <div class="gallery-item">
-        <img src="119895315_1532506302.jpg" alt="Outdoor Solo">
+        <img src="pic3.jpg" alt="Outdoor Solo">
         <span class="gallery-tag">👤 ภาพเดี่ยว (Individual)</span>
       </div>
       <div class="gallery-item">
-        <img src="c8c2e01e-6dee-4334-8a74-de2985f101ea.jpg" alt="Group Friends Fun">
+        <img src="pic4.jpg" alt="Group Friends Fun">
         <span class="gallery-tag">👥 ภาพกลุ่ม (Group)</span>
       </div>
       <div class="gallery-item">
-        <img src="d9b44701-9d3e-4c78-9fea-31daffd7ff5d.jpg" alt="Graduate & Friend">
+        <img src="pic5.jpg" alt="Graduate & Friend">
         <span class="gallery-tag">👤 ภาพคู่ / เดี่ยว</span>
       </div>
       <div class="gallery-item">
-        <img src="ceb9854a-149c-47fe-99b2-706d3258884e.jpg" alt="Group Graduation Collage">
+        <img src="pic6.jpg" alt="Group Graduation Collage">
         <span class="gallery-tag">👥 บรรยากาศถ่ายกลุ่ม</span>
       </div>
     </div>
 
-    <!-- Packages Section -->
     <div class="section-header">
       <h2 class="section-title" id="pkgTitle">แพ็กเกจถ่ายภาพ</h2>
       <p class="section-subtitle" id="pkgSubtitle">เลือกแพ็กเกจที่ตรงกับความต้องการของคุณ</p>
     </div>
 
     <div class="packages-grid">
-      
       <div class="package-card">
-        <img src="9.jpeg" alt="Individual Package" class="package-img">
+        <img src="pic1.jpg" alt="Individual Package" class="package-img">
         <div class="package-content">
           <div>
             <h3 id="pkg1Title">1. แพ็กเกจเดี่ยว (Individual)</h3>
@@ -373,7 +363,7 @@
 
       <div class="package-card popular">
         <span class="popular-tag" id="popularTag">ยอดนิยม</span>
-        <img src="7ecca14c-d479-439e-928d-3cbc3ce53c0f.jpg" alt="Group Package" class="package-img">
+        <img src="pic2.jpg" alt="Group Package" class="package-img">
         <div class="package-content">
           <div>
             <h3 id="pkg2Title">2. แพ็กเกจกลุ่มนอกรอบ (Group)</h3>
@@ -390,7 +380,7 @@
       </div>
 
       <div class="package-card">
-        <img src="119895315_1532506302.jpg" alt="Graduation Day Package" class="package-img">
+        <img src="pic3.jpg" alt="Graduation Day Package" class="package-img">
         <div class="package-content">
           <div>
             <h3 id="pkg3Title">3. แพ็กเกจวันจริง (Graduation Day)</h3>
@@ -405,10 +395,8 @@
           <button class="select-btn" onclick="selectPkg('Graduation Day Package')" id="selectBtn3">เลือกแพ็กเกจนี้</button>
         </div>
       </div>
-
     </div>
 
-    <!-- Booking Form -->
     <div class="booking-section">
       <div class="section-header" style="margin-bottom: 1.5rem;">
         <h2 class="section-title" id="formTitle">จองคิวถ่ายภาพ</h2>
