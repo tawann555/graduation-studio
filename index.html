@@ -63,7 +63,7 @@
       border-color: var(--primary);
     }
 
-    /* Hero Banner with Background Image */
+    /* Hero Banner */
     .hero {
       text-align: center;
       padding: 5rem 1.5rem 4rem;
@@ -100,7 +100,7 @@
       font-size: 0.95rem;
     }
 
-    /* Gallery Section */
+    /* Gallery Section ( Both Individual & Group Photos ) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -111,7 +111,7 @@
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      height: 250px;
+      height: 260px;
       box-shadow: var(--shadow);
     }
     .gallery-item img {
@@ -122,6 +122,17 @@
     }
     .gallery-item:hover img {
       transform: scale(1.05);
+    }
+    .gallery-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(15, 23, 42, 0.8);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
     }
 
     /* Packages Grid */
@@ -302,19 +313,43 @@
 
   <div class="container">
     
-    <!-- Gallery Section -->
+    <!-- Gallery Section ( รูปเดี่ยว & รูปกลุ่ม ) -->
     <div class="section-header">
-      <h2 class="section-title" id="galleryTitle">ผลงานที่ผ่านมา (Portfolio)</h2>
-      <p class="section-subtitle" id="gallerySubtitle">ตัวอย่างภาพถ่ายรับปริญญาและบรรยากาศจากสตูดิโอของเรา</p>
+      <h2 class="section-title" id="galleryTitle">ผลงานภาพถ่ายเดี่ยวและภาพถ่ายกลุ่ม (Portfolio)</h2>
+      <p class="section-subtitle" id="gallerySubtitle">ตัวอย่างภาพถ่ายรับปริญญาเดี่ยวและภาพถ่ายกลุ่มเพื่อนจากสตูดิโอของเรา</p>
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Graduate Portrait"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Graduation Group"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Studio Shot"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="Graduate Portrait 2"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Group Friends"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1627556592933-ffe99c1cd9eb?auto=format&fit=crop&w=800&q=80" alt="Graduation Celebration"></div>
+      <!-- รูปเดี่ยว -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Graduate Portrait Individual">
+        <span class="gallery-tag" id="tagInd1">👤 ภาพเดี่ยว (Individual)</span>
+      </div>
+      <!-- รูปกลุ่ม -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Graduation Group Friends">
+        <span class="gallery-tag" id="tagGrp1">👥 ภาพกลุ่ม (Group)</span>
+      </div>
+      <!-- รูปเดี่ยว -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="Individual Portrait Studio">
+        <span class="gallery-tag" id="tagInd2">👤 ภาพเดี่ยว (Individual)</span>
+      </div>
+      <!-- รูปกลุ่ม -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Group Friends Studio">
+        <span class="gallery-tag" id="tagGrp2">👥 ภาพกลุ่ม (Group)</span>
+      </div>
+      <!-- รูปเดี่ยว -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Graduate Solo">
+        <span class="gallery-tag" id="tagInd3">👤 ภาพเดี่ยว (Individual)</span>
+      </div>
+      <!-- รูปกลุ่ม / วันรับจริง -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1627556592933-ffe99c1cd9eb?auto=format&fit=crop&w=800&q=80" alt="Graduation Day Friends">
+        <span class="gallery-tag" id="tagGrp3">👥 ภาพกลุ่มวันงาน (Graduation Day)</span>
+      </div>
     </div>
 
     <!-- Packages Section -->
@@ -445,8 +480,14 @@
         heroBadge: '⚡ ช่วง Peak Season (เปิดรับจอง 3 สัปดาห์)',
         heroTitle: 'สตูดิโอถ่ายภาพรับปริญญา',
         heroSubtitle: 'เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. บันทึกความทรงจำในวันสำคัญของคุณด้วยภาพถ่ายคุณภาพสูง',
-        galleryTitle: 'ผลงานที่ผ่านมา (Portfolio)',
-        gallerySubtitle: 'ตัวอย่างภาพถ่ายรับปริญญาและบรรยากาศจากสตูดิโอของเรา',
+        galleryTitle: 'ผลงานภาพถ่ายเดี่ยวและภาพถ่ายกลุ่ม (Portfolio)',
+        gallerySubtitle: 'ตัวอย่างภาพถ่ายรับปริญญาเดี่ยวและภาพถ่ายกลุ่มเพื่อนจากสตูดิโอของเรา',
+        tagInd1: '👤 ภาพเดี่ยว (Individual)',
+        tagGrp1: '👥 ภาพกลุ่ม (Group)',
+        tagInd2: '👤 ภาพเดี่ยว (Individual)',
+        tagGrp2: '👥 ภาพกลุ่ม (Group)',
+        tagInd3: '👤 ภาพเดี่ยว (Individual)',
+        tagGrp3: '👥 ภาพกลุ่มวันงาน (Graduation Day)',
         pkgTitle: 'แพ็กเกจถ่ายภาพ',
         pkgSubtitle: 'เลือกแพ็กเกจที่ตรงกับความต้องการของคุณ',
         popularTag: 'ยอดนิยม',
@@ -484,8 +525,14 @@
         heroBadge: '⚡ 3-Week Peak Season Booking Open',
         heroTitle: 'Graduation Photo Studio',
         heroSubtitle: 'Open Daily 08:00 AM - 08:00 PM. Capture your graduation milestone with high-quality portraits.',
-        galleryTitle: 'Our Portfolio',
-        gallerySubtitle: 'Explore recent graduation photo sessions from our studio',
+        galleryTitle: 'Individual & Group Portfolio',
+        gallerySubtitle: 'Explore recent solo portraits and group session photos from our studio',
+        tagInd1: '👤 Individual Portrait',
+        tagGrp1: '👥 Group Session',
+        tagInd2: '👤 Individual Portrait',
+        tagGrp2: '👥 Group Session',
+        tagInd3: '👤 Individual Portrait',
+        tagGrp3: '👥 Graduation Day Group',
         pkgTitle: 'Photo Packages',
         pkgSubtitle: 'Choose the best package for your graduation day',
         popularTag: 'Most Popular',
@@ -530,6 +577,14 @@
       document.getElementById('heroSubtitle').innerText = langData.heroSubtitle;
       document.getElementById('galleryTitle').innerText = langData.galleryTitle;
       document.getElementById('gallerySubtitle').innerText = langData.gallerySubtitle;
+
+      document.getElementById('tagInd1').innerText = langData.tagInd1;
+      document.getElementById('tagGrp1').innerText = langData.tagGrp1;
+      document.getElementById('tagInd2').innerText = langData.tagInd2;
+      document.getElementById('tagGrp2').innerText = langData.tagGrp2;
+      document.getElementById('tagInd3').innerText = langData.tagInd3;
+      document.getElementById('tagGrp3').innerText = langData.tagGrp3;
+
       document.getElementById('pkgTitle').innerText = langData.pkgTitle;
       document.getElementById('pkgSubtitle').innerText = langData.pkgSubtitle;
       document.getElementById('popularTag').innerText = langData.popularTag;
