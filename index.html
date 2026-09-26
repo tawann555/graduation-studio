@@ -4,157 +4,287 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PeakGrad Studio - Graduation Photography Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1e293b;
-      --accent: #d97706;
-      --bg: #f8fafc;
+      --primary: #0f172a;
+      --primary-accent: #d97706;
+      --primary-hover: #b45309;
+      --bg: #fafaf9;
       --card-bg: #ffffff;
-      --text: #0f172a;
-      --border: #e2e8f0;
+      --text-main: #1c1917;
+      --text-muted: #78716c;
+      --border: #e7e5e4;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Prompt', sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
 
+    /* Header */
     header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
-    
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .lang-btn {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+      background: #f5f5f4;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
       cursor: pointer;
-      font-weight: bold;
-      transition: opacity 0.2s;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
     }
-    .lang-btn:hover { opacity: 0.9; }
+    .lang-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
 
+    /* Hero Banner with Background Image */
     .hero {
       text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
+      padding: 5rem 1.5rem 4rem;
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: white;
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.1rem; color: #cbd5e1; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary-accent);
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .hero p { font-size: 1.1rem; color: #e2e8f0; max-width: 650px; margin: 0 auto; }
 
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .container { max-width: 1080px; margin: 3rem auto; padding: 0 1.5rem; }
 
-    .section-title {
+    .section-header {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
       color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
     }
 
-    /* Packages */
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 4rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 240px;
+      box-shadow: var(--shadow);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Packages Grid */
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      gap: 1.8rem;
+      margin-bottom: 4rem;
     }
 
     .package-card {
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: 16px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+      overflow: hidden;
     }
-    .package-card:hover { transform: translateY(-5px); }
-    .package-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
-    .package-price { font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem; }
-    
+    .package-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary-accent);
+    }
+    .package-card.popular {
+      border: 2px solid var(--primary-accent);
+    }
+    .package-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .package-content {
+      padding: 1.5rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--primary-accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .package-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+    .package-price { font-size: 1.8rem; color: var(--primary-accent); font-weight: 700; margin-bottom: 0.8rem; }
+    .package-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .package-features li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .select-btn {
       width: 100%;
       background: var(--primary);
       color: white;
       border: none;
-      padding: 0.75rem;
-      border-radius: 6px;
+      padding: 0.85rem;
+      border-radius: 10px;
       cursor: pointer;
-      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
     }
     .select-btn:hover { background: #334155; }
 
     /* Booking Form */
     .booking-section {
       background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 12px;
+      padding: 2.5rem;
+      border-radius: 20px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow);
+      max-width: 650px;
+      margin: 0 auto;
     }
 
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.95rem; color: var(--primary); }
     .form-group input, .form-group select {
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.85rem 1rem;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background: #fafaf9;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-accent);
+      background: white;
     }
 
     .submit-btn {
       width: 100%;
-      background: var(--accent);
+      background: var(--primary-accent);
       color: white;
       border: none;
       padding: 1rem;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      font-weight: bold;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
     }
-    .submit-btn:hover { background: #b45309; }
+    .submit-btn:hover { background: var(--primary-hover); }
 
-    /* Confirmation Modal/Box */
+    /* Confirmation Box */
     .confirmation-box {
       display: none;
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-top: 1.5rem;
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin-top: 1.8rem;
     }
-    .confirmation-box h3 { color: #166534; margin-bottom: 0.5rem; }
-    
-    .action-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .confirmation-box h3 { color: #166534; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .confirmation-box p { color: #15803d; font-size: 0.95rem; }
+
+    .action-links { display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
     .action-link {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
+      font-size: 0.9rem;
       font-weight: 600;
       color: white;
+      transition: opacity 0.2s;
+      flex: 1;
+      min-width: 180px;
     }
-    .calendar-link { background: #2563eb; }
+    .action-link:hover { opacity: 0.9; }
+    .calendar-link { background: #0284c7; }
     .email-link { background: #059669; }
 
-    footer { text-align: center; padding: 2rem; background: var(--primary); color: #94a3b8; margin-top: 4rem; }
+    footer { text-align: center; padding: 2.5rem 1rem; background: #1c1917; color: #a8a29e; margin-top: 5rem; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -165,45 +295,97 @@
   </header>
 
   <section class="hero">
-    <h1 id="heroTitle">สตูดิโอถ่ายภาพรับปริญญา (Peak Season 3 สัปดาห์)</h1>
-    <p id="heroSubtitle">เปิดบริการจองคิวพิเศษ เวลา 08:00 - 20:00 น.</p>
+    <span class="hero-badge" id="heroBadge">⚡ ช่วง Peak Season (เปิดรับจอง 3 สัปดาห์)</span>
+    <h1 id="heroTitle">สตูดิโอถ่ายภาพรับปริญญา</h1>
+    <p id="heroSubtitle">เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. บันทึกความทรงจำในวันสำคัญของคุณด้วยภาพถ่ายคุณภาพสูง</p>
   </section>
 
   <div class="container">
-    <h2 class="section-title" id="pkgTitle">เลือกแพ็กเกจถ่ายภาพ</h2>
+    
+    <!-- Gallery Section -->
+    <div class="section-header">
+      <h2 class="section-title" id="galleryTitle">ผลงานที่ผ่านมา (Portfolio)</h2>
+      <p class="section-subtitle" id="gallerySubtitle">บรรยากาศและผลงานภาพถ่ายรับปริญญาจากสตูดิโอของเรา</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Graduate Portrait"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Studio Shot"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Group Friends"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80" alt="Graduate Portrait 2"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Group Graduation"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Happy Graduate"></div>
+    </div>
+
+    <!-- Packages Section -->
+    <div class="section-header">
+      <h2 class="section-title" id="pkgTitle">แพ็กเกจถ่ายภาพ</h2>
+      <p class="section-subtitle" id="pkgSubtitle">เลือกแพ็กเกจที่ตรงกับความต้องการของคุณ</p>
+    </div>
+
     <div class="packages-grid">
       
       <div class="package-card">
-        <div>
-          <h3 id="pkg1Title">1. แพ็กเกจเดี่ยว (Individual)</h3>
-          <div class="package-price" id="pkg1Price">฿2,500</div>
-          <p id="pkg1Desc">เหมาะสำหรับการถ่ายภาพบุคคลเนี่ยว ละเอียด เน้นพอร์เทรตความทรงจำการสำเร็จการศึกษา</p>
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Individual Package" class="package-img">
+        <div class="package-content">
+          <div>
+            <h3 id="pkg1Title">1. แพ็กเกจเดี่ยว (Individual)</h3>
+            <div class="package-price" id="pkg1Price">฿2,500</div>
+            <p class="package-desc" id="pkg1Desc">เหมาะสำหรับการถ่ายภาพบุคคลเดี่ยว ละเอียด เน้นพอร์เทรตความทรงจำการสำเร็จการศึกษา</p>
+            <ul class="package-features" id="pkg1Feat">
+              <li>✓ ถ่ายภาพในสตูดิโอ 1 ชั่วโมง</li>
+              <li>✓ ปรับแต่งแสงและแต่งสีภาพทุกรูป</li>
+              <li>✓ ได้รับไฟล์ภาพความละเอียดสูงทั้งหมด</li>
+            </ul>
+          </div>
+          <button class="select-btn" onclick="selectPkg('Individual Package')" id="selectBtn1">เลือกแพ็กเกจนี้</button>
         </div>
-        <button class="select-btn" onclick="selectPkg('Individual Package')" id="selectBtn1">เลือกแพ็กเกจนี้</button>
+      </div>
+
+      <div class="package-card popular">
+        <span class="popular-tag" id="popularTag">ยอดนิยม</span>
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Group Package" class="package-img">
+        <div class="package-content">
+          <div>
+            <h3 id="pkg2Title">2. แพ็กเกจกลุ่มนอกรอบ (Group)</h3>
+            <div class="package-price" id="pkg2Price">฿4,500</div>
+            <p class="package-desc" id="pkg2Desc">ถ่ายกลุ่มเพื่อนสนิท บรรยากาศสนุกสนาน ไม่จำกัดท่าทาง เก็บความทรงจำร่วมกัน</p>
+            <ul class="package-features" id="pkg2Feat">
+              <li>✓ ถ่ายภาพกลุ่ม 2 ชั่วโมง (ไม่เกิน 6 คน)</li>
+              <li>✓ ถ่ายภาพเดี่ยวให้ครบทุกคน</li>
+              <li>✓ ได้รับไฟล์ภาพความละเอียดสูงทั้งหมด</li>
+            </ul>
+          </div>
+          <button class="select-btn" onclick="selectPkg('Group Package')" id="selectBtn2">เลือกแพ็กเกจนี้</button>
+        </div>
       </div>
 
       <div class="package-card">
-        <div>
-          <h3 id="pkg2Title">2. แพ็กเกจกลุ่มนอกรอบ (Group)</h3>
-          <div class="package-price" id="pkg2Price">฿4,500</div>
-          <p id="pkg2Desc">ถ่ายกลุ่มเพื่อนสนิท บรรยากาศสนุกสนาน ไม่จำกัดท่าทางความทรงจำร่วมกัน</p>
+        <img src="https://images.unsplash.com/photo-1627556592933-ffe99c1cd9eb?auto=format&fit=crop&w=600&q=80" alt="Graduation Day Package" class="package-img">
+        <div class="package-content">
+          <div>
+            <h3 id="pkg3Title">3. แพ็กเกจวันจริง (Graduation Day)</h3>
+            <div class="package-price" id="pkg3Price">฿6,000</div>
+            <p class="package-desc" id="pkg3Desc">เก็บภาพบรรยากาศวันซ้อมใหญ่ หรือวันรับจริง ครอบคลุมทุกช่วงเวลาสำคัญ</p>
+            <ul class="package-features" id="pkg3Feat">
+              <li>✓ ถ่ายภาพนอกสถานที่ / วันงาน (ครึ่งวัน)</li>
+              <li>✓ ถ่ายคู่กับครอบครัวและเพื่อนๆ</li>
+              <li>✓ แถมฟรี แฟลชไดรฟ์บรรจุไฟล์ภาพ</li>
+            </ul>
+          </div>
+          <button class="select-btn" onclick="selectPkg('Graduation Day Package')" id="selectBtn3">เลือกแพ็กเกจนี้</button>
         </div>
-        <button class="select-btn" onclick="selectPkg('Group Package')" id="selectBtn2">เลือกแพ็กเกจนี้</button>
-      </div>
-
-      <div class="package-card">
-        <div>
-          <h3 id="pkg3Title">3. แพ็กเกจวันจริง (Graduation Day)</h3>
-          <div class="package-price" id="pkg3Price">฿6,000</div>
-          <p id="pkg3Desc">เก็บภาพบรรยากาศวันซ้อมใหญ่ หรือวันรับจริง ครอบคลุมทุกช่วงเวลาสำคัญ</p>
-        </div>
-        <button class="select-btn" onclick="selectPkg('Graduation Day Package')" id="selectBtn3">เลือกแพ็กเกจนี้</button>
       </div>
 
     </div>
 
+    <!-- Booking Form -->
     <div class="booking-section">
-      <h2 class="section-title" id="formTitle">ฟอร์มจองคิวถ่ายภาพ</h2>
+      <div class="section-header" style="margin-bottom: 1.5rem;">
+        <h2 class="section-title" id="formTitle">จองคิวถ่ายภาพ</h2>
+        <p class="section-subtitle" id="formSubtitle">กรอกข้อมูลเพื่อสำรองคิวล่วงหน้า</p>
+      </div>
+
       <form id="bookingForm" onsubmit="handleBooking(event)">
         <div class="form-group">
           <label id="lblPackage">แพ็กเกจที่เลือก</label>
@@ -212,21 +394,21 @@
 
         <div class="form-group">
           <label id="lblName">ชื่อ-นามสกุล</label>
-          <input type="text" id="custName" required>
+          <input type="text" id="custName" placeholder="ระบุชื่อและนามสกุล" required>
         </div>
 
         <div class="form-group">
           <label id="lblEmail">อีเมล</label>
-          <input type="email" id="custEmail" required>
+          <input type="email" id="custEmail" placeholder="example@email.com" required>
         </div>
 
         <div class="form-group">
           <label id="lblPhone">เบอร์โทรศัพท์</label>
-          <input type="tel" id="custPhone" required>
+          <input type="tel" id="custPhone" placeholder="08X-XXX-XXXX" required>
         </div>
 
         <div class="form-group">
-          <label id="lblDate">วันที่ต้องการจอง (เฉพาะช่วง Peak 3 สัปดาห์)</label>
+          <label id="lblDate">วันที่ต้องการจอง</label>
           <input type="date" id="bookDate" required>
         </div>
 
@@ -243,7 +425,7 @@
         <p id="confText">ขอบคุณที่เลือกใช้บริการ PeakGrad Studio รายละเอียดการจองของคุณถูกบันทึกเรียบร้อยแล้ว</p>
         
         <div class="action-links">
-          <a href="#" id="gCalBtn" target="_blank" class="action-link calendar-link">📅 บันทึกลง Google Calendar</a>
+          <a href="#" id="gCalBtn" target="_blank" class="action-link calendar-link">📅 เพิ่มลง Google Calendar</a>
           <a href="#" id="emailBtn" class="action-link email-link">✉️ ส่งอีเมลยืนยัน</a>
         </div>
       </div>
@@ -251,7 +433,7 @@
   </div>
 
   <footer>
-    <p>© 2026 PeakGrad Studio. Operating Hours: 08:00 - 20:00 Daily.</p>
+    <p>© 2026 PeakGrad Studio. All rights reserved. | Operating Hours: 08:00 - 20:00 Daily</p>
   </footer>
 
   <script>
@@ -260,59 +442,79 @@
     const i18n = {
       TH: {
         langBtn: 'EN',
-        heroTitle: 'สตูดิโอถ่ายภาพรับปริญญา (Peak Season 3 สัปดาห์)',
-        heroSubtitle: 'เปิดบริการจองคิวพิเศษ เวลา 08:00 - 20:00 น.',
-        pkgTitle: 'เลือกแพ็กเกจถ่ายภาพ',
+        heroBadge: '⚡ ช่วง Peak Season (เปิดรับจอง 3 สัปดาห์)',
+        heroTitle: 'สตูดิโอถ่ายภาพรับปริญญา',
+        heroSubtitle: 'เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. บันทึกความทรงจำในวันสำคัญของคุณด้วยภาพถ่ายคุณภาพสูง',
+        galleryTitle: 'ผลงานที่ผ่านมา (Portfolio)',
+        gallerySubtitle: 'บรรยากาศและผลงานภาพถ่ายรับปริญญาจากสตูดิโอของเรา',
+        pkgTitle: 'แพ็กเกจถ่ายภาพ',
+        pkgSubtitle: 'เลือกแพ็กเกจที่ตรงกับความต้องการของคุณ',
+        popularTag: 'ยอดนิยม',
         pkg1Title: '1. แพ็กเกจเดี่ยว (Individual)',
         pkg1Price: '฿2,500',
         pkg1Desc: 'เหมาะสำหรับการถ่ายภาพบุคคลเดี่ยว ละเอียด เน้นพอร์เทรตความทรงจำการสำเร็จการศึกษา',
+        pkg1Feat: '<li>✓ ถ่ายภาพในสตูดิโอ 1 ชั่วโมง</li><li>✓ ปรับแต่งแสงและแต่งสีภาพทุกรูป</li><li>✓ ได้รับไฟล์ภาพความละเอียดสูงทั้งหมด</li>',
         pkg2Title: '2. แพ็กเกจกลุ่มนอกรอบ (Group)',
         pkg2Price: '฿4,500',
-        pkg2Desc: 'ถ่ายกลุ่มเพื่อนสนิท บรรยากาศสนุกสนาน ไม่จำกัดท่าทางความทรงจำร่วมกัน',
+        pkg2Desc: 'ถ่ายกลุ่มเพื่อนสนิท บรรยากาศสนุกสนาน ไม่จำกัดท่าทาง เก็บความทรงจำร่วมกัน',
+        pkg2Feat: '<li>✓ ถ่ายภาพกลุ่ม 2 ชั่วโมง (ไม่เกิน 6 คน)</li><li>✓ ถ่ายภาพเดี่ยวให้ครบทุกคน</li><li>✓ ได้รับไฟล์ภาพความละเอียดสูงทั้งหมด</li>',
         pkg3Title: '3. แพ็กเกจวันจริง (Graduation Day)',
         pkg3Price: '฿6,000',
         pkg3Desc: 'เก็บภาพบรรยากาศวันซ้อมใหญ่ หรือวันรับจริง ครอบคลุมทุกช่วงเวลาสำคัญ',
+        pkg3Feat: '<li>✓ ถ่ายภาพนอกสถานที่ / วันงาน (ครึ่งวัน)</li><li>✓ ถ่ายคู่กับครอบครัวและเพื่อนๆ</li><li>✓ แถมฟรี แฟลชไดรฟ์บรรจุไฟล์ภาพ</li>',
         selectBtn: 'เลือกแพ็กเกจนี้',
-        formTitle: 'ฟอร์มจองคิวถ่ายภาพ',
+        formTitle: 'จองคิวถ่ายภาพ',
+        formSubtitle: 'กรอกข้อมูลเพื่อสำรองคิวล่วงหน้า',
         lblPackage: 'แพ็กเกจที่เลือก',
         pkgPlaceholder: 'โปรดเลือกแพ็กเกจจากด้านบน',
         lblName: 'ชื่อ-นามสกุล',
+        namePlaceholder: 'ระบุชื่อและนามสกุล',
         lblEmail: 'อีเมล',
         lblPhone: 'เบอร์โทรศัพท์',
-        lblDate: 'วันที่ต้องการจอง (เฉพาะช่วง Peak 3 สัปดาห์)',
+        lblDate: 'วันที่ต้องการจอง',
         lblTime: 'เวลาที่ต้องการ (เวลาทำการ 08:00 - 20:00 น.)',
         btnSubmit: 'ยืนยันการจองคิว',
         confTitle: '🎉 ยืนยันการจองสำเร็จ!',
         confText: 'ขอบคุณที่เลือกใช้บริการ PeakGrad Studio รายละเอียดการจองของคุณถูกบันทึกเรียบร้อยแล้ว',
-        gCalText: '📅 บันทึกลง Google Calendar',
+        gCalText: '📅 เพิ่มลง Google Calendar',
         emailText: '✉️ ส่งอีเมลยืนยัน'
       },
       EN: {
         langBtn: 'TH',
-        heroTitle: 'Graduation Photo Studio (3-Week Peak Season)',
-        heroSubtitle: 'Special Booking Service Hours: 08:00 AM - 08:00 PM',
-        pkgTitle: 'Select Photography Package',
+        heroBadge: '⚡ 3-Week Peak Season Booking Open',
+        heroTitle: 'Graduation Photo Studio',
+        heroSubtitle: 'Open Daily 08:00 AM - 08:00 PM. Capture your graduation milestone with high-quality portraits.',
+        galleryTitle: 'Our Portfolio',
+        gallerySubtitle: 'Explore recent graduation photo sessions from our studio',
+        pkgTitle: 'Photo Packages',
+        pkgSubtitle: 'Choose the best package for your graduation day',
+        popularTag: 'Most Popular',
         pkg1Title: '1. Individual Package',
         pkg1Price: '฿2,500',
-        pkg1Desc: 'Perfect for solo portraits and capturing graduation memories.',
+        pkg1Desc: 'Perfect for solo portraits and capturing individual graduation memories.',
+        pkg1Feat: '<li>✓ 1 Hour Studio Session</li><li>✓ Color correction & basic retouches</li><li>✓ All full-resolution digital files</li>',
         pkg2Title: '2. Group Package',
         pkg2Price: '฿4,500',
-        pkg2Desc: 'Fun and memorable photo session for group of close friends.',
+        pkg2Desc: 'Fun and memorable session with your group of close friends.',
+        pkg2Feat: '<li>✓ 2 Hours Group Session (Up to 6)</li><li>✓ Individual portraits included</li><li>✓ All full-resolution digital files</li>',
         pkg3Title: '3. Graduation Day Package',
         pkg3Price: '฿6,000',
-        pkg3Desc: 'Coverage for rehearsal or actual ceremony day.',
+        pkg3Desc: 'Comprehensive coverage for your rehearsal or actual ceremony day.',
+        pkg3Feat: '<li>✓ On-location / Event Coverage (Half Day)</li><li>✓ Family & Friends shots included</li><li>✓ Free USB Flash Drive with all files</li>',
         selectBtn: 'Select Package',
-        formTitle: 'Booking Form',
+        formTitle: 'Booking Request',
+        formSubtitle: 'Fill out the form below to reserve your slot',
         lblPackage: 'Selected Package',
         pkgPlaceholder: 'Please select a package above',
         lblName: 'Full Name',
-        lblEmail: 'Email',
+        namePlaceholder: 'Enter your full name',
+        lblEmail: 'Email Address',
         lblPhone: 'Phone Number',
-        lblDate: 'Preferred Date (3-Week Peak Period)',
-        lblTime: 'Preferred Time (Operating Hours: 08:00 - 20:00)',
+        lblDate: 'Preferred Date',
+        lblTime: 'Preferred Time (Hours: 08:00 AM - 08:00 PM)',
         btnSubmit: 'Confirm Booking',
         confTitle: '🎉 Booking Confirmed!',
-        confText: 'Thank you for choosing PeakGrad Studio. Your booking details have been saved.',
+        confText: 'Thank you for choosing PeakGrad Studio. Your reservation has been saved.',
         gCalText: '📅 Add to Google Calendar',
         emailText: '✉️ Send Confirmation Email'
       }
@@ -323,23 +525,35 @@
       const langData = i18n[currentLang];
 
       document.getElementById('langToggleBtn').innerText = langData.langBtn;
+      document.getElementById('heroBadge').innerText = langData.heroBadge;
       document.getElementById('heroTitle').innerText = langData.heroTitle;
       document.getElementById('heroSubtitle').innerText = langData.heroSubtitle;
+      document.getElementById('galleryTitle').innerText = langData.galleryTitle;
+      document.getElementById('gallerySubtitle').innerText = langData.gallerySubtitle;
       document.getElementById('pkgTitle').innerText = langData.pkgTitle;
+      document.getElementById('pkgSubtitle').innerText = langData.pkgSubtitle;
+      document.getElementById('popularTag').innerText = langData.popularTag;
       
       document.getElementById('pkg1Title').innerText = langData.pkg1Title;
       document.getElementById('pkg1Desc').innerText = langData.pkg1Desc;
+      document.getElementById('pkg1Feat').innerHTML = langData.pkg1Feat;
+
       document.getElementById('pkg2Title').innerText = langData.pkg2Title;
       document.getElementById('pkg2Desc').innerText = langData.pkg2Desc;
+      document.getElementById('pkg2Feat').innerHTML = langData.pkg2Feat;
+
       document.getElementById('pkg3Title').innerText = langData.pkg3Title;
       document.getElementById('pkg3Desc').innerText = langData.pkg3Desc;
+      document.getElementById('pkg3Feat').innerHTML = langData.pkg3Feat;
 
       document.querySelectorAll('.select-btn').forEach(btn => btn.innerText = langData.selectBtn);
 
       document.getElementById('formTitle').innerText = langData.formTitle;
+      document.getElementById('formSubtitle').innerText = langData.formSubtitle;
       document.getElementById('lblPackage').innerText = langData.lblPackage;
       document.getElementById('selectedPackage').placeholder = langData.pkgPlaceholder;
       document.getElementById('lblName').innerText = langData.lblName;
+      document.getElementById('custName').placeholder = langData.namePlaceholder;
       document.getElementById('lblEmail').innerText = langData.lblEmail;
       document.getElementById('lblPhone').innerText = langData.lblPhone;
       document.getElementById('lblDate').innerText = langData.lblDate;
@@ -366,11 +580,9 @@
       const date = document.getElementById('bookDate').value;
       const time = document.getElementById('bookTime').value;
 
-      // Google Calendar Link Generator
       const startDateTime = `${date.replace(/-/g, '')}T${time.replace(':', '')}00`;
       const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('ถ่ายภาพรับปริญญา PeakGrad Studio (' + pkg + ')')}&dates=${startDateTime}/${startDateTime}&details=${encodeURIComponent('นัดหมายจองคิวถ่ายภาพรับปริญญาสำหรับ ' + name)}`;
       
-      // Mailto Link Generator
       const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent('ยืนยันการจองคิว PeakGrad Studio - ' + pkg)}&body=${encodeURIComponent('สวัสดีคุณ ' + name + ',\n\nยืนยันการจองคิวถ่ายภาพรับปริญญาแพ็กเกจ: ' + pkg + '\nวันที่: ' + date + '\nเวลา: ' + time + '\n\nขอบคุณครับ\nPeakGrad Studio')}`;
 
       document.getElementById('gCalBtn').href = gCalUrl;
