@@ -18,6 +18,7 @@
       --text-muted: #78716c;
       --border: #e7e5e4;
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      --line-green: #06c755;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Prompt', sans-serif; }
@@ -43,7 +44,26 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      text-decoration: none;
     }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .contact-nav-btn {
+      background: var(--line-green);
+      color: white;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: opacity 0.2s;
+    }
+    .contact-nav-btn:hover { opacity: 0.9; }
 
     .lang-btn {
       background: #f5f5f4;
@@ -224,7 +244,7 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       max-width: 650px;
-      margin: 0 auto;
+      margin: 0 auto 4rem;
     }
 
     .form-group { margin-bottom: 1.4rem; }
@@ -289,14 +309,41 @@
     .calendar-link { background: #0284c7; }
     .email-link { background: #059669; }
 
+    /* Contact Banner Box */
+    .contact-banner {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .contact-banner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .contact-banner p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .contact-banner-btn {
+      display: inline-block;
+      background: var(--line-green);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+    .contact-banner-btn:hover { transform: scale(1.03); }
+
     footer { text-align: center; padding: 2.5rem 1rem; background: #1c1917; color: #a8a29e; margin-top: 5rem; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">🎓 PeakGrad Studio</div>
-    <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">EN</button>
+    <a href="index.html" class="logo">🎓 PeakGrad Studio</a>
+    <div class="header-actions">
+      <a href="contact.html" class="contact-nav-btn" id="navContactBtn">💬 ติดต่อเรา / Line OA</a>
+      <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">EN</button>
+    </div>
   </header>
 
   <section class="hero">
@@ -447,6 +494,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+      <h3 id="bannerTitle">ต้องการสอบถามรายละเอียดเพิ่มเติม?</h3>
+      <p id="bannerDesc">เช็กคิวว่าง ปรึกษาแพ็กเกจ หรือติดต่อสอบถามด่วนผ่าน Line OA และช่องทางอื่นๆ ได้ทันที</p>
+      <a href="contact.html" class="contact-banner-btn" id="bannerBtn">💬 ดูช่องทางการติดต่อทั้งหมด</a>
+    </div>
+
   </div>
 
   <footer>
@@ -459,6 +514,7 @@
     const i18n = {
       TH: {
         langBtn: 'EN',
+        navContactBtn: '💬 ติดต่อเรา / Line OA',
         heroBadge: '⚡ ช่วง Peak Season (เปิดรับจอง 3 สัปดาห์)',
         heroTitle: 'สตูดิโอถ่ายภาพรับปริญญา',
         heroSubtitle: 'เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. บันทึกความทรงจำในวันสำคัญของคุณด้วยภาพถ่ายคุณภาพสูง',
@@ -500,10 +556,14 @@
         confTitle: '🎉 ยืนยันการจองสำเร็จ!',
         confText: 'ขอบคุณที่เลือกใช้บริการ PeakGrad Studio รายละเอียดการจองของคุณถูกบันทึกเรียบร้อยแล้ว',
         gCalText: '📅 เพิ่มลง Google Calendar',
-        emailText: '✉️ ส่งอีเมลยืนยัน'
+        emailText: '✉️ ส่งอีเมลยืนยัน',
+        bannerTitle: 'ต้องการสอบถามรายละเอียดเพิ่มเติม?',
+        bannerDesc: 'เช็กคิวว่าง ปรึกษาแพ็กเกจ หรือติดต่อสอบถามด่วนผ่าน Line OA และช่องทางอื่นๆ ได้ทันที',
+        bannerBtn: '💬 ดูช่องทางการติดต่อทั้งหมด'
       },
       EN: {
         langBtn: 'TH',
+        navContactBtn: '💬 Contact Us / Line OA',
         heroBadge: '⚡ 3-Week Peak Season Booking Open',
         heroTitle: 'Graduation Photo Studio',
         heroSubtitle: 'Open Daily 08:00 AM - 08:00 PM. Capture your graduation milestone with high-quality portraits.',
@@ -545,7 +605,10 @@
         confTitle: '🎉 Booking Confirmed!',
         confText: 'Thank you for choosing PeakGrad Studio. Your reservation has been saved.',
         gCalText: '📅 Add to Google Calendar',
-        emailText: '✉️ Send Confirmation Email'
+        emailText: '✉️ Send Confirmation Email',
+        bannerTitle: 'Have Questions or Special Requests?',
+        bannerDesc: 'Check slot availability or chat with us via Line OA',
+        bannerBtn: '💬 View All Contact Options'
       }
     };
 
@@ -554,6 +617,7 @@
       const langData = i18n[currentLang];
 
       document.getElementById('langToggleBtn').innerText = langData.langBtn;
+      document.getElementById('navContactBtn').innerText = langData.navContactBtn;
       document.getElementById('heroBadge').innerText = langData.heroBadge;
       document.getElementById('heroTitle').innerText = langData.heroTitle;
       document.getElementById('heroSubtitle').innerText = langData.heroSubtitle;
@@ -601,6 +665,10 @@
       document.getElementById('confText').innerText = langData.confText;
       document.getElementById('gCalBtn').innerText = langData.gCalText;
       document.getElementById('emailBtn').innerText = langData.emailText;
+
+      document.getElementById('bannerTitle').innerText = langData.bannerTitle;
+      document.getElementById('bannerDesc').innerText = langData.bannerDesc;
+      document.getElementById('bannerBtn').innerText = langData.bannerBtn;
     }
 
     function selectPkg(pkgName) {
