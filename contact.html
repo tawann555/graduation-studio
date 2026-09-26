@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ติดต่อเรา - PeakGrad Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-accent: #d97706;
+      --bg: #fafaf9;
+      --card-bg: #ffffff;
+      --text-main: #1c1917;
+      --text-muted: #78716c;
+      --border: #e7e5e4;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      --line-green: #06c755;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Prompt', sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--primary-accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .container { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+
+    .page-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .contact-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .contact-card h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .contact-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+
+    .contact-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: white;
+    }
+
+    .line-bg { background-color: var(--line-green); }
+    .phone-bg { background-color: #0284c7; }
+    .ig-bg { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+
+    footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); margin-top: 4rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">🎓 PeakGrad Studio</a>
+    <a href="index.html" class="nav-back">← กลับหน้าหลัก</a>
+  </header>
+
+  <div class="container">
+    <h1 class="page-title">ช่องทางการติดต่อ</h1>
+    <p class="page-subtitle">สอบถามรายละเอียด คิวงาน หรือขอคำแนะนำเพิ่มเติมได้ตลอดเวลา</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <h3>Line Official</h3>
+        <p>สอบถามคิวและปรึกษาได้รวดเร็ว</p>
+        <a href="https://line.me/ti/p/~@peakgrad" target="_blank" class="contact-btn line-bg">แชต Line OA (@peakgrad)</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <h3>เบอร์โทรศัพท์</h3>
+        <p>ติดต่อด่วนเวลา 08:00 - 20:00 น.</p>
+        <a href="tel:0812345678" class="contact-btn phone-bg">โทร 081-234-5678</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">📸</span>
+        <h3>Instagram</h3>
+        <p>ชมผลงานและภาพบรรยากาศเพิ่มเติม</p>
+        <a href="https://instagram.com" target="_blank" class="contact-btn ig-bg">ติดตาม @peakgrad.studio</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 PeakGrad Studio. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
