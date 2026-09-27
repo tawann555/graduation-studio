@@ -237,6 +237,55 @@
     }
     .select-btn:hover { background: #334155; }
 
+    /* Reviews Section Style */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .review-card {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-stars {
+      color: #f59e0b;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    .review-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+    }
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .review-info h4 { font-size: 0.95rem; font-weight: 600; color: var(--primary); }
+    .review-info span { font-size: 0.8rem; color: var(--text-muted); }
+
     .booking-section {
       background: var(--card-bg);
       padding: 2.5rem;
@@ -444,6 +493,56 @@
       </div>
     </div>
 
+    <!-- Reviews Section -->
+    <div class="section-header">
+      <h2 class="section-title" id="reviewTitle">ความประทับใจจากผู้ใช้บริการ</h2>
+      <p class="section-subtitle" id="reviewSubtitle">รีวิวและคำชมจริงจากบัณฑิตและรุ่นพี่ที่เลือกถ่ายภาพกับเรา</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text" id="rev1Text">"พี่ตากล้องเป็นกันเองมาก ช่วยคิดท่าโพสให้ตลอดเพราะหนี้กล้องเกร็งๆ แต่รูปออกมาสวยเป็นธรรมชาติสุดๆ ได้รูปเร็วด้วยครับ"</p>
+        </div>
+        <div class="review-user">
+          <div class="review-avatar">K</div>
+          <div class="review-info">
+            <h4>คุณก้องเกียรติ</h4>
+            <span id="rev1Sub">บัณฑิตจุฬาลงกรณ์มหาวิทยาลัย</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text" id="rev2Text">"ถ่ายกลุ่มนอกรอบกับแก๊งเพื่อนสนุกมากกก พี่ตากล้องจับจังหวะเผลอเก่งมาก รูปออกมาโทนสวยคลีน ไม่ต้องแต่งเพิ่มเลยค่ะ!"</p>
+        </div>
+        <div class="review-user">
+          <div class="review-avatar">M</div>
+          <div class="review-info">
+            <h4>คุณมุกดา</h4>
+            <span id="rev2Sub">บัณฑิตมหาวิทยาลัยธรรมศาสตร์</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text" id="rev3Text">"ประทับใจแพ็กเกจวันรับจริงมาก สตูดิโอตรงเวลา วางแผนมุมถ่ายให้ครอบครัวด้วย พ่อแม่ชอบรูปมากครับ คุ้มค่าสุดๆ"</p>
+        </div>
+        <div class="review-user">
+          <div class="review-avatar">T</div>
+          <div class="review-info">
+            <h4>คุณธนกฤต</h4>
+            <span id="rev3Sub">บัณฑิตมหาวิทยาลัยเกษตรศาสตร์</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="booking-section">
       <div class="section-header" style="margin-bottom: 1.5rem;">
         <h2 class="section-title" id="formTitle">จองคิวถ่ายภาพ</h2>
@@ -542,6 +641,14 @@
         pkg3Desc: 'เก็บภาพบรรยากาศวันซ้อมใหญ่ หรือวันรับจริง ครอบคลุมทุกช่วงเวลาสำคัญ',
         pkg3Feat: '<li>✓ ถ่ายภาพนอกสถานที่ / วันงาน (ครึ่งวัน)</li><li>✓ ถ่ายคู่กับครอบครัวและเพื่อนๆ</li><li>✓ แถมฟรี แฟลชไดรฟ์บรรจุไฟล์ภาพ</li>',
         selectBtn: 'เลือกแพ็กเกจนี้',
+        reviewTitle: 'ความประทับใจจากผู้ใช้บริการ',
+        reviewSubtitle: 'รีวิวและคำชมจริงจากบัณฑิตและรุ่นพี่ที่เลือกถ่ายภาพกับเรา',
+        rev1Text: '"พี่ตากล้องเป็นกันเองมาก ช่วยคิดท่าโพสให้ตลอดเพราะหนี้กล้องเกร็งๆ แต่รูปออกมาสวยเป็นธรรมชาติสุดๆ ได้รูปเร็วด้วยครับ"',
+        rev1Sub: 'บัณฑิตจุฬาลงกรณ์มหาวิทยาลัย',
+        rev2Text: '"ถ่ายกลุ่มนอกรอบกับแก๊งเพื่อนสนุกมากกก พี่ตากล้องจับจังหวะเผลอเก่งมาก รูปออกมาโทนสวยคลีน ไม่ต้องแต่งเพิ่มเลยค่ะ!"',
+        rev2Sub: 'บัณฑิตมหาวิทยาลัยธรรมศาสตร์',
+        rev3Text: '"ประทับใจแพ็กเกจวันรับจริงมาก สตูดิโอตรงเวลา วางแผนมุมถ่ายให้ครอบครัวด้วย พ่อแม่ชอบรูปมากครับ คุ้มค่าสุดๆ"',
+        rev3Sub: 'บัณฑิตมหาวิทยาลัยเกษตรศาสตร์',
         formTitle: 'จองคิวถ่ายภาพ',
         formSubtitle: 'กรอกข้อมูลเพื่อสำรองคิวล่วงหน้า',
         lblPackage: 'แพ็กเกจที่เลือก',
@@ -591,6 +698,14 @@
         pkg3Desc: 'Comprehensive coverage for your rehearsal or actual ceremony day.',
         pkg3Feat: '<li>✓ On-location / Event Coverage (Half Day)</li><li>✓ Family & Friends shots included</li><li>✓ Free USB Flash Drive with all files</li>',
         selectBtn: 'Select Package',
+        reviewTitle: 'Client Testimonials',
+        reviewSubtitle: 'Real feedback from graduates who chose PeakGrad Studio',
+        rev1Text: '"The photographer was super friendly and helped guide our poses. Photos came out natural and delivered very fast!"',
+        rev1Sub: 'Chulalongkorn University Graduate',
+        rev2Text: '"Our group shoot was so much fun! The candid shots were amazing, clean tone and no heavy editing needed!"',
+        rev2Sub: 'Thammasat University Graduate',
+        rev3Text: '"Highly recommend for Graduation Day! Punctual team, well-planned family shots. My parents loved the results!"',
+        rev3Sub: 'Kasetsart University Graduate',
         formTitle: 'Booking Request',
         formSubtitle: 'Fill out the form below to reserve your slot',
         lblPackage: 'Selected Package',
@@ -648,6 +763,15 @@
       document.getElementById('pkg3Feat').innerHTML = langData.pkg3Feat;
 
       document.querySelectorAll('.select-btn').forEach(btn => btn.innerText = langData.selectBtn);
+
+      document.getElementById('reviewTitle').innerText = langData.reviewTitle;
+      document.getElementById('reviewSubtitle').innerText = langData.reviewSubtitle;
+      document.getElementById('rev1Text').innerText = langData.rev1Text;
+      document.getElementById('rev1Sub').innerText = langData.rev1Sub;
+      document.getElementById('rev2Text').innerText = langData.rev2Text;
+      document.getElementById('rev2Sub').innerText = langData.rev2Sub;
+      document.getElementById('rev3Text').innerText = langData.rev3Text;
+      document.getElementById('rev3Sub').innerText = langData.rev3Sub;
 
       document.getElementById('formTitle').innerText = langData.formTitle;
       document.getElementById('formSubtitle').innerText = langData.formSubtitle;
