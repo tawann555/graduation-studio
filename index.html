@@ -388,7 +388,7 @@
 <body>
 
   <header>
-    <a href="index.html" class="logo">🎓 PeakGrad Studio</a>
+    <a href="index.html" class="logo">🎓 Memories Studio</a>
     <div class="header-actions">
       <a href="contact.html" class="contact-nav-btn" id="navContactBtn">💬 ติดต่อเรา / Line OA</a>
       <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">EN</button>
@@ -520,7 +520,7 @@
           <p class="review-text" id="rev2Text">"ถ่ายกลุ่มนอกรอบกับแก๊งเพื่อนสนุกมากกก พี่ตากล้องจับจังหวะเผลอเก่งมาก รูปออกมาโทนสวยคลีน ไม่ต้องแต่งเพิ่มเลยค่ะ!"</p>
         </div>
         <div class="review-user">
-          <div class="review-avatar">M</div>
+          <div class="review-avatar">C</div>
           <div class="review-info">
             <h4>คุณเชอร์รี่</h4>
             <span id="rev2Sub">บัณฑิตมหาวิทยาลัยธรรมศาสตร์</span>
@@ -810,7 +810,7 @@
       const time = document.getElementById('bookTime').value;
 
       const startDateTime = `${date.replace(/-/g, '')}T${time.replace(':', '')}00`;
-      const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('ถ่ายภาพรับปริญญา PeakGrad Studio (' + pkg + ')')}&dates=${startDateTime}/${startDateTime}&details=${encodeURIComponent('นัดหมายจองคิวถ่ายภาพรับปริญญาสำหรับ ' + name)}`;
+      const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('ถ่ายภาพรับปริญญา Memories Studio (' + pkg + ')')}&dates=${startDateTime}/${startDateTime}&details=${encodeURIComponent('นัดหมายจองคิวถ่ายภาพรับปริญญาสำหรับ ' + name)}`;
       
       const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent('ยืนยันการจองคิว Memories Studio - ' + pkg)}&body=${encodeURIComponent('สวัสดีคุณ ' + name + ',\n\nยืนยันการจองคิวถ่ายภาพรับปริญญาแพ็กเกจ: ' + pkg + '\nวันที่: ' + date + '\nเวลา: ' + time + '\n\nขอบคุณครับ\nPeakGrad Studio')}`;
 
