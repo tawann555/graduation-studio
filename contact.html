@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ติดต่อเรา - PeakGrad Studio</title>
+  <title>ติดต่อเรา & แผนที่ - PeakGrad Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,6 +30,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .logo {
@@ -46,7 +49,7 @@
       font-size: 0.95rem;
     }
 
-    .container { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+    .container { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
 
     .page-title {
       text-align: center;
@@ -63,8 +66,9 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
+      margin-bottom: 3.5rem;
     }
 
     .contact-card {
@@ -95,6 +99,63 @@
     .phone-bg { background-color: #0284c7; }
     .ig-bg { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
 
+    /* Map Section Styles */
+    .map-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 2rem;
+    }
+
+    .map-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .map-header h2 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .map-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 380px;
+      border: 0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .location-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      background: #fafaf9;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .info-item h4 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
     footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); margin-top: 4rem; font-size: 0.9rem; }
   </style>
 </head>
@@ -106,9 +167,10 @@
   </header>
 
   <div class="container">
-    <h1 class="page-title">ช่องทางการติดต่อ</h1>
-    <p class="page-subtitle">สอบถามรายละเอียด คิวงาน หรือขอคำแนะนำเพิ่มเติมได้ตลอดเวลา</p>
+    <h1 class="page-title">ช่องทางการติดต่อ & แผนที่สตูดิโอ</h1>
+    <p class="page-subtitle">สอบถามรายละเอียด คิวงาน หรือเดินทางมายังสตูดิโอของเราได้ง่ายๆ</p>
 
+    <!-- Contact Cards -->
     <div class="contact-grid">
       <div class="contact-card">
         <span class="contact-icon">💬</span>
@@ -131,10 +193,39 @@
         <a href="https://instagram.com" target="_blank" class="contact-btn ig-bg">ติดตาม @peakgrad.studio</a>
       </div>
     </div>
+
+    <!-- Map & Location Section -->
+    <div class="map-section">
+      <div class="map-header">
+        <h2>📍 พิกัดและแผนที่สตูดิโอ (Location Map)</h2>
+        <p>เปิดให้บริการทุกวัน เวลา 08:00 - 20:00 น. มีพื้นที่จอดรถสำหรับลูกค้าทุกท่าน</p>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <iframe 
+        class="map-frame"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.642013898684!2d100.53037207588828!3d13.739502986651817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed0109f0295%3A0xb2b95b4c4f923b32!2z4LiA4Lij4Li44Lih4LmA4LiX4Lie4Lih4Lir4Liy4LiZ4LiE4Lij4LmE4LiX4Lii!5e0!3m2!1sth!2sth!4v1700000000000!5m2!1sth!2sth" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <div class="location-info">
+        <div class="info-item">
+          <h4>🏢 ที่อยู่สตูดิโอ</h4>
+          <p>PeakGrad Studio อาคารสำนักงานชั้น 2 (ติดกับจุดรับรองบัณฑิต)</p>
+        </div>
+        <div class="info-item">
+          <h4>🚗 การเดินทาง & ที่จอดรถ</h4>
+          <p>เดินทางสะดวกด้วยรถส่วนตัว มีลานจอดรถรองรับมากกว่า 20 คัน</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer>
-    <p>© 2026 PeakGrad Studio. All rights reserved.</p>
+    <p>© 2026 PeakGrad Studio. All rights reserved. | Operating Hours: 08:00 - 20:00 Daily</p>
   </footer>
 
 </body>
